@@ -25,6 +25,9 @@ class Categories
     #[ORM\ManyToMany(targetEntity: Articles::class, mappedBy: 'Categories')]
     private Collection $categorie;
 
+    #[ORM\Column(nullable: true)]
+    private ?int $CategoryOrder = null;
+
     public function __construct()
     {
         $this->categorie = new ArrayCollection();
@@ -59,6 +62,18 @@ class Categories
         return $this;
     }
 
+    public function getUsers(): ?Users
+    {
+        return $this->Users;
+    }
+
+    public function setUsers(?Users $Users): self
+    {
+        $this->Users = $Users;
+
+        return $this;
+    }
+
     /**
      * @return Collection<int, Articles>
      */
@@ -82,6 +97,18 @@ class Categories
         if ($this->categorie->removeElement($categorie)) {
             $categorie->removeCategory($this);
         }
+
+        return $this;
+    }
+
+    public function getCategoryOrder(): ?int
+    {
+        return $this->CategoryOrder;
+    }
+
+    public function setCategoryOrder(?int $CategoryOrder): self
+    {
+        $this->CategoryOrder = $CategoryOrder;
 
         return $this;
     }

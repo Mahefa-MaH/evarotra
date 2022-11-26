@@ -21,6 +21,20 @@ class FluxActualitesRepository extends ServiceEntityRepository
         parent::__construct($registry, FluxActualites::class);
     }
 
+    /**
+     * @return FluxActualites[]
+     */
+
+    public function lastTree()
+    {
+       return $this->createQueryBuilder('p')
+                   ->orderBy('p.id', 'DESC')
+                   ->setMaxResults(3)
+                   ->getQuery()
+                   ->getResult()
+                   ;
+    }
+
     public function save(FluxActualites $entity, bool $flush = false): void
     {
         $this->getEntityManager()->persist($entity);

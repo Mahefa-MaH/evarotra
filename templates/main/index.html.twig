@@ -1,0 +1,263 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+	<div class="site-wrap">
+
+
+		<!-- HEADER START  -->
+
+		<!-- HEADER END  -->
+
+		<!-- MAIN HERO START  -->
+			<div class="site-blocks-cover" style="background-image: url(images/hero_1.jpg);" data-aos="fade"> <div class="container">
+				<div class="row align-items-start align-items-md-center justify-content-end">
+					<div class="col-md-5 text-center text-md-left pt-5 pt-md-0">
+						<h1 class="mb-2">Trouver vos chaussures parfaites</h1>
+						<div class="intro-text text-center text-md-left">
+							<p class="mb-4">Chaussure bleu converse
+							</p>
+							<p>
+								<a href="#" class="btn btn-sm btn-primary">Acheter maintenant</a>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div><!-- MAIN HERO END  --><!-- PRESENTATION START  --><section class="container py-5">
+			<div class="row text-center pt-3">
+				<div class="col-lg-6 m-auto">
+					<h1 class="h1">Catégories du mois</h1>
+					<p>
+						Voici les tendances de ce mois-ci!
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																												                  deserunt mollit anim id est laborum.
+					</p>
+				</div>
+			</div>
+			<div class="row">
+				{%for articles in articles %}
+					<div class="col-12 col-md-4 p-5 mt-3">
+						<a href="#"><img src={{ articles.file}} class="rounded-circle img-fluid border imgshow m-auto"></a>
+						<h5 class="text-center mt-3 mb-3">{{ articles.description|u.truncate(50,'...',false)}}</h5>
+						<p class="text-center">
+							<a class="btn btn-primary text-light">Panier</a>
+						</p>
+					</div>
+
+				{% endfor %}
+			</div>
+		</section><!-- PRESENTATION END  --><!-- SERVICES START  --><div class="site-section site-section-sm site-blocks-1">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6 col-lg-4 d-lg-flex mb-4 mb-lg-0 pl-4" data-aos="fade-up" data-aos-delay="">
+						<div class="icon mr-4 align-self-start">
+							<span class="icon-truck"></span>
+						</div>
+						<div class="text">
+							<h2 class="text-uppercase">Livraison Gratuite</h2>
+							<p>Rapide/fiable/sécurisé.</p>
+						</div>
+					</div>
+					<div class="col-md-6 col-lg-4 d-lg-flex mb-4 mb-lg-0 pl-4" data-aos="fade-up" data-aos-delay="100">
+						<div class="icon mr-4 align-self-start">
+							<span class="icon-refresh2"></span>
+						</div>
+						<div class="text">
+							<h2 class="text-uppercase">Retoure sans frais</h2>
+							<p>Nos Avantages</p>
+						</div>
+					</div>
+					<div class="col-md-6 col-lg-4 d-lg-flex mb-4 mb-lg-0 pl-4" data-aos="fade-up" data-aos-delay="200">
+						<div class="icon mr-4 align-self-start">
+							<span class="icon-help"></span>
+						</div>
+						<div class="text">
+							<h2 class="text-uppercase">Service clients</h2>
+							<p>24h/24h et 7j/7j</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div><!-- SERVICES END   --><!-- COLLECTION START  --><div class="site-section site-blocks-2">
+			<div class="container">
+				<div class="row">
+					{%for articles in articles %}
+						<div class="col-sm-6 col-md-6 col-lg-4 mb-4 mb-lg-0" data-aos="fade" data-aos-delay="">
+							<a class="block-2-item" href="#">
+								<figure class="image">
+									<img src={{ articles.file}} alt="" class="img-fluid">
+								</figure>
+								<div class="text">
+									<span class="text-uppercase">{{ articles.taille|u.truncate(10,'...',false)}}</span>
+									<h3>{{ articles.nom }}</h3>
+								</div>
+							</a>
+						</div>
+					{% endfor %}
+				</div>
+			</div>
+		</div><!-- COLLECTION END  --><!-- SLIDER START  --><div class="site-section block-3 site-blocks-2 bg-light">
+			<div class="container">
+				<div class="row justify-content-center">
+					<div class="col-md-7 site-section-heading text-center pt-4">
+						<h2>Produits Populaires</h2>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="nonloop-block-3 owl-carousel">
+							{%for articles in articleS %}
+								<div class="item">
+									<div class="block-4 text-center">
+										<figure class="block-4-image">
+											<img src={{ articles.file}} alt="Image placeholder" class="img-fluid">
+										</figure>
+										<div class="block-4-text p-4">
+											<h3>
+												<p href="#">{{ articles.nom}}</p>
+											</h3>
+											<p href="#">{{ articles.taille|u.truncate(10,'...',false)}}</p>
+											<p class="text-primary font-weight-bold">{{ articles.prix }}
+												Ar</p>
+										</div>
+									</div>
+								</div>
+							{% endfor %}
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+		</div><!-- SLIDER END  --><!-- Offer Start --><div class="container-fluid offer pt-5">
+			<div class="row px-xl-5">
+				<div class="col-md-6 pb-4">
+					<div class="position-relative bg-light text-center text-md-left text-white mb-2 py-5 px-5">
+						<div class="position-relative" style="z-index: 1;">
+							<h5 class="text-uppercase text-primary mb-3">20% de réduction sur toutes les commandes</h5>
+							<h1 class="mb-4 font-weight-semi-bold text-primary">Collection Eté</h1>
+							<a href="" class="btn btn-outline-primary py-md-2 px-md-3">Acheter maintenant</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6 pb-4">
+					<div class="position-relative bg-light text-center text-md-left text-white mb-2 py-5 px-5">
+						<div class="position-relative" style="z-index: 1;">
+							<h5 class="text-uppercase text-primary mb-3">>20% de réduction sur toutes les commandes</h5>
+							<h1 class="mb-4 font-weight-semi-bold text-primary">Collection Eté</h1>
+							<a href="" class="btn btn-outline-primary py-md-2 px-md-3">Acheter maintenant</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div><!-- Offer End --><!-- ABOUT SECTION  --><div class="site-section block-8">
+			<div class="container">
+				<div class="row justify-content-center  mb-5">
+					<div class="col-md-7 site-section-heading text-center pt-4">
+						<h2>Ventes en Gros</h2>
+					</div>
+				</div>
+				<div class="row align-items-center">
+					<div class="col-md-12 col-lg-7 mb-5">
+						<a href="#"><img src="images/blog_1.jpg" alt="Image placeholder" class="img-fluid rounded"></a>
+					</div>
+					<div class="col-md-12 col-lg-5 text-center pl-md-5">
+						<h2>
+							<a href="#">50% de réduction sur toutes les commandes</a>
+						</h2>
+						<p class="post-meta mb-4">Par
+							<a href="#">
+								Vero Vero</a>
+							<span class="block-8-sep">&bullet;</span>
+							octobre 3, 2022</p>
+						<p>Ne ratez pas nos articles pour compléter votre collection.</p>
+						<p>
+							<a href="#" class="btn btn-primary btn-sm">Acheter maintenant</a>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div><!-- ABOUT SECTION  END--><!-- FOOTER START  --><div class="container-fluid bg-secondary text-dark mt-5 pt-5">
+			<div class="row px-xl-5 pt-5">
+				<div class="col-lg-4 col-md-12 mb-5 pr-3 pr-xl-5">
+					<a href="" class="text-decoration-none">
+						<h1 class="mb-4 display-5 font-weight-semi-bold">
+							<span class="text-primary font-weight-bold px-3 mr-1"></span>Shopper</h1>
+					</a>
+					<p>Dolore erat dolor sit lorem vero amet. Sed sit lorem magna, ipsum no sit erat lorem et magna ipsum dolore amet erat.</p>
+					<p class="mb-2">
+						<i class="fa fa-map-marker-alt text-primary mr-3"></i>123 Street, New York, USA</p>
+					<p class="mb-2">
+						<i class="fa fa-envelope text-primary mr-3"></i>info@example.com</p>
+					<p class="mb-0">
+						<i class="fa fa-phone-alt text-primary mr-3"></i>+012 345 67890</p>
+				</div>
+				<div class="col-lg-8 col-md-12">
+					<div class="row">
+						<div class="col-md-4 mb-5">
+							<h5 class="font-weight-bold text-dark mb-4">Quick Links</h5>
+							<div class="d-flex flex-column justify-content-start">
+								<a class="text-dark mb-2" href="index.html">
+									<i class="fa fa-angle-right mr-2"></i>Home</a>
+								<a class="text-dark mb-2" href="shop.html">
+									<i class="fa fa-angle-right mr-2"></i>Our Shop</a>
+								<a class="text-dark mb-2" href="detail.html">
+									<i class="fa fa-angle-right mr-2"></i>Shop Detail</a>
+								<a class="text-dark mb-2" href="cart.html">
+									<i class="fa fa-angle-right mr-2"></i>Shopping Cart</a>
+								<a class="text-dark mb-2" href="checkout.html">
+									<i class="fa fa-angle-right mr-2"></i>Checkout</a>
+								<a class="text-dark" href="contact.html">
+									<i class="fa fa-angle-right mr-2"></i>Contact Us</a>
+							</div>
+						</div>
+						<div class="col-md-4 mb-5">
+							<h5 class="font-weight-bold text-dark mb-4">Quick Links</h5>
+							<div class="d-flex flex-column justify-content-start">
+								<a class="text-dark mb-2" href="index.html">
+									<i class="fa fa-angle-right mr-2"></i>Home</a>
+								<a class="text-dark mb-2" href="shop.html">
+									<i class="fa fa-angle-right mr-2"></i>Our Shop</a>
+								<a class="text-dark mb-2" href="detail.html">
+									<i class="fa fa-angle-right mr-2"></i>Shop Detail</a>
+								<a class="text-dark mb-2" href="cart.html">
+									<i class="fa fa-angle-right mr-2"></i>Shopping Cart</a>
+								<a class="text-dark mb-2" href="checkout.html">
+									<i class="fa fa-angle-right mr-2"></i>Checkout</a>
+								<a class="text-dark" href="contact.html">
+									<i class="fa fa-angle-right mr-2"></i>Contact Us</a>
+							</div>
+						</div>
+						<div class="col-md-4 mb-5">
+							<h5 class="font-weight-bold text-dark mb-4">Newsletter</h5>
+							<form action="">
+								<div class="form-group">
+									<input type="text" class="form-control border-0 py-4" placeholder="Your Name" required="required"/>
+								</div>
+								<div class="form-group">
+									<input type="email" class="form-control border-0 py-4" placeholder="Your Email" required="required"/>
+								</div>
+								<div>
+									<button class="btn btn-primary btn-block border-0 py-3" type="submit">Subscribe Now</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row border-top border-light mx-xl-5 py-4">
+				<div class="col-md-6 px-xl-0">
+					<p class="mb-md-0 text-center text-md-left text-dark">
+						&copy;
+						<a class="text-dark font-weight-semi-bold" href="#">Vero Vero</a>Tous les droits sont réservés par GROUPE "FIVOY".
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			                  by
+						<a class="text-dark font-weight-semi-bold" href="#">ISPM Sucré</a><br>
+					</p>
+				</div>
+				<div class="col-md-6 px-xl-0 text-center text-md-right">
+					<img class="img-fluid" src="img/payments.png" alt="">
+				</div>
+			</div>
+		</div><!-- Footer End --></div>
+{% endblock %}

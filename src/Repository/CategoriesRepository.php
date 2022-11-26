@@ -21,6 +21,20 @@ class CategoriesRepository extends ServiceEntityRepository
         parent::__construct($registry, Categories::class);
     }
 
+    /**
+     * @return Categories[]
+     */
+
+    public function lastTree()
+    {
+       return $this->createQueryBuilder('p')
+                   ->orderBy('p.id', 'DESC')
+                   ->setMaxResults(3)
+                   ->getQuery()
+                   ->getResult()
+                   ;
+    }
+
     public function save(Categories $entity, bool $flush = false): void
     {
         $this->getEntityManager()->persist($entity);

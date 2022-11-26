@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ArticleController!
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+		<div class="row">
+			{%for articles in articles %}
+				<div class="col-12 col-md-4 p-5 mt-3">
+					<a href="#"><img src={{ articles.file}} class="rounded-circle img-fluid border imgshow m-auto"></a>
+					<h5 class="text-center mt-3 mb-3">{{ articles.description|u.truncate(50,'...',false)}}</h5>
+					<p class="text-center">
+						<a class="btn btn-primary text-light">Panier</a>
+					</p>
+				</div>
+
+			{% endfor %}
+		</div>
+		<div class="d-flex justify-content-center">
+			{% do articles.setPageRange(2) %}
+			{{ knp_pagination_render(articles, 'base/pagination.html.twig') }}
+		</div>
+	</div>
+
+{% endblock %}

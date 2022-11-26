@@ -21,6 +21,34 @@ class ArticlesRepository extends ServiceEntityRepository
         parent::__construct($registry, Articles::class);
     }
 
+    /**
+     * @return Articles[]
+     */
+
+     public function lastTree()
+     {
+        return $this->createQueryBuilder('p')
+                    ->orderBy('p.id', 'DESC')
+                    ->setMaxResults(3)
+                    ->getQuery()
+                    ->getResult()
+                    ;
+     }
+
+     /**
+     * @return Articles[]
+     */
+
+     public function lastFive()
+     {
+        return $this->createQueryBuilder('p')
+                    ->orderBy('p.id', 'DESC')
+                    ->setMaxResults(5)
+                    ->getQuery()
+                    ->getResult()
+                    ;
+     }
+
     public function save(Articles $entity, bool $flush = false): void
     {
         $this->getEntityManager()->persist($entity);
