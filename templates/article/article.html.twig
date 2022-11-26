@@ -11,7 +11,7 @@
 					<a href="#"><img src={{ articles.file}} class="rounded-circle img-fluid border imgshow m-auto"></a>
 					<h5 class="text-center mt-3 mb-3">{{ articles.description|u.truncate(50,'...',false)}}</h5>
 					<p class="text-center">
-						<a class="btn btn-primary text-light">Panier</a>
+						<a href={{path('cart_')}} class="btn btn-primary text-light">Panier</a>
 					</p>
 				</div>
 

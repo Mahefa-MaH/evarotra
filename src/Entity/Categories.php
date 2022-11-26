@@ -28,6 +28,9 @@ class Categories
     #[ORM\Column(nullable: true)]
     private ?int $CategoryOrder = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $file = null;
+
     public function __construct()
     {
         $this->categorie = new ArrayCollection();
@@ -109,6 +112,18 @@ class Categories
     public function setCategoryOrder(?int $CategoryOrder): self
     {
         $this->CategoryOrder = $CategoryOrder;
+
+        return $this;
+    }
+
+    public function getFile(): ?string
+    {
+        return $this->file;
+    }
+
+    public function setFile(?string $file): self
+    {
+        $this->file = $file;
 
         return $this;
     }

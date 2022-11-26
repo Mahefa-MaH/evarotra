@@ -27,10 +27,11 @@ class AppFixtures extends Fixture
         // $product = new Product();
         $user = new Users();
 
-        $user->setEmail('user@test.com')
+        $user->setEmail('user@test1.com')
             ->setNom($faker->firstName())
             ->setPrenom($faker->lastName())
             ->setAdresse($faker->text())
+            ->setRoles(['ROLE_VENDEUR'])
             ->setNumTel($faker->text());
 
         $plaintextPassword = 123456789;
@@ -54,31 +55,50 @@ class AppFixtures extends Fixture
         }
         
 
-        for ($i=0; $i < 10 ; $i++) { 
+        for ($j=0; $j < 10 ; $j++) { 
             $categorie  =  new Categories();
 
             $categorie->setNom($faker->word())
                         ->setUsers($user)
                         ->setDescription($faker->words(10, true));
 
+                        for ($i=0; $i < 8 ; $i++) { 
+                            $articles  =  new Articles();
+                
+                            $articles->setNom($faker->word())
+                                        ->setDate($faker->dateTimeBetween('-6 month', 'now'))
+                                        ->setTaille($faker->text())
+                                        ->setUsers($user)
+                                        ->setOrigine($faker->text())
+                                        ->setEtat($faker->text())
+                                        ->setDescription($faker->text())
+                                        ->setQuantite($faker->numberBetween(0, 200))
+                                        ->setEnVente($faker->boolean())
+                                        ->setFile('./images/shoes/3.jpg')
+                                        ->setPrix($faker->numberBetween(5, 200)*1000);
+                
+                            $manager->persist($articles);
+                        }
+                
+                        for ($i=0; $i < 2 ; $i++) { 
+                            $articles  =  new Articles();
+                
+                            $articles->setNom($faker->word())
+                                        ->setDate($faker->dateTimeBetween('-6 month', 'now'))
+                                        ->setTaille($faker->text())
+                                        ->setUsers($user)
+                                        ->setOrigine($faker->text())
+                                        ->setEtat($faker->text())
+                                        ->setDescription($faker->text())
+                                        ->setQuantite($faker->numberBetween(0, 200))
+                                        ->setEnVente($faker->boolean())
+                                        ->setFile('./images/shoes/1.jpg')
+                                        ->setPrix($faker->numberBetween(5, 200)*1000);
+                
+                            $manager->persist($articles);
+                        }
+
             $manager->persist($categorie);
-        }
-
-        for ($i=0; $i < 10 ; $i++) { 
-            $articles  =  new Articles();
-
-            $articles->setNom($faker->word())
-                        ->setDate($faker->dateTimeBetween('-6 month', 'now'))
-                        ->setTaille($faker->text())
-                        ->setUsers($user)
-                        ->setOrigine($faker->text())
-                        ->setEtat($faker->text())
-                        ->setDescription($faker->text())
-                        ->setEnVente($faker->boolean())
-                        ->setFile('./images/shoes/1.jpg')
-                        ->setPrix($faker->numberBetween(0, 100000000));
-
-            $manager->persist($articles);
         }
 
 

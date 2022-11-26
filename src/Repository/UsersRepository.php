@@ -24,6 +24,20 @@ class UsersRepository extends ServiceEntityRepository implements PasswordUpgrade
         parent::__construct($registry, Users::class);
     }
 
+    /**
+     * Pour recuperer le vendeur
+     */
+
+    public function getVendeur()
+    {
+       return $this->createQueryBuilder('u')
+                   ->where('u.roles LIKE :roles')
+                   ->setParameter('roles', '%"ROLE_VENDEUR"%')
+                   ->getQuery()
+                   ->getOneOrNullResult()
+                   ;
+    }
+
     public function save(Users $entity, bool $flush = false): void
     {
         $this->getEntityManager()->persist($entity);

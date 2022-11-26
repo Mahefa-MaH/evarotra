@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AProposController!
+{% endblock %}
+
+{% block body %}
+	<div class="container-fluid offer pt-5">
+		<div class="row px-xl-5">
+			<div class="col-md-6 pb-4">
+				<div class="position-relative bg-light text-center text-md-left text-white mb-2 py-5 px-5">
+					<div class="position-relative" style="z-index: 1;">
+						<h1 class="mb-4 font-weight-semi-bold text-primary">Nom :{{ vendeur.nom }}</h1>
+						<h1 class="mb-4 font-weight-semi-bold text-primary">Préom :{{ vendeur.prenom }}</h1>
+						<p class="text-uppercase text-primary mb-3">
+							A propos :{{ vendeur.apropos|u.truncate(100,'...',false)}}</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

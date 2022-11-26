@@ -37,7 +37,7 @@
 
 							<div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
 								<div class="site-logo">
-									<a href="index.html" class="js-logo-clone">Acheteurs</a>
+									<a href="index.html" class="js-logo-clone">E-varotra</a>
 								</div>
 							</div>
 
@@ -76,7 +76,7 @@
 					<div class="container">
 						<ul class="site-menu js-clone-nav d-none d-md-block">
 							<li class="has-children active">
-								<a href="index.html">Acceuil</a>
+								<a href={{ path('homepage') }}>Acceuil</a>
 								<ul class="dropdown">
 									<li>
 										<a href="#">Menu One</a>
@@ -104,7 +104,7 @@
 								</ul>
 							</li>
 							<li class="has-children">
-								<a href="about.html">A Propos</a>
+								<a href={{ path('app_a_propos') }}>A Propos</a>
 								<ul class="dropdown">
 									<li>
 										<a href="#">Menu One</a>
@@ -124,7 +124,7 @@
 								<a href={{ path('app_actualite') }}>Actualités</a>
 							</li>
 							<li>
-								<a href="#">Arrivages</a>
+								<a href={{ path('app_categorie') }}>Catégories</a>
 							</li>
 							<li>
 								<a href="contact.html">Contact</a>
@@ -134,7 +134,8 @@
 				</nav>
 			</header>
 
-			{% block body %}{% endblock %}
+
+			{% block body %}<!--ATO NO AMPIDIRINA NY TEMPLATE -->{% endblock %}
 
 			{% include 'partials/footer.html.twig' %}
 

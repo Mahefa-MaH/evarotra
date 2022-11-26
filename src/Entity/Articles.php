@@ -56,6 +56,9 @@ class Articles
     #[ORM\OneToMany(mappedBy: 'article', targetEntity: Commentaires::class)]
     private Collection $artcom;
 
+    #[ORM\Column(nullable: true)]
+    private ?int $quantite = null;
+
     public function __construct()
     {
         $this->Categories = new ArrayCollection();
@@ -252,4 +255,17 @@ class Articles
 
         return $this;
     }
+
+    public function getQuantite(): ?int
+    {
+        return $this->quantite;
+    }
+
+    public function setQuantite(?int $quantite): self
+    {
+        $this->quantite = $quantite;
+
+        return $this;
+    }
+    
 }
