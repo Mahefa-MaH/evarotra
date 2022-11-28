@@ -8,11 +8,19 @@
 		<div class="row px-xl-5">
 			<div class="col-md-6 pb-4">
 				<div class="position-relative bg-light text-center text-md-left text-white mb-2 py-5 px-5">
-					<div class="position-relative" style="z-index: 1;">
-						<h1 class="mb-4 font-weight-semi-bold text-primary">Nom :{{ vendeur.nom }}</h1>
-						<h1 class="mb-4 font-weight-semi-bold text-primary">Préom :{{ vendeur.prenom }}</h1>
-						<p class="text-uppercase text-primary mb-3">
-							A propos :{{ vendeur.apropos|u.truncate(100,'...',false)}}</p>
+					<div
+						class="position-relative" style="z-index: 1;">
+						<!--
+												<h1 class="mb-4 font-weight-semi-bold text-primary">Nom :{{ vendeur.nom }}</h1>
+												<h1 class="mb-4 font-weight-semi-bold text-primary">Préom :{{ vendeur.prenom }}</h1>
+											-->
+						<p class="mb-4 font-weight-semi-bold text-primary">Nous sommes spécialisés dans la mode,
+													les chaussures et les accessoires haut de gamme. 
+													Nous fournissons des services de stylisme personnalisés pour obtenir le look parfait
+													et le bon ajustement quelle que soit l'occasion.</p>
+						<p
+							class="text-uppercase text-primary mb-3"><!--A propos :{{ vendeur.apropos|u.truncate(100,'...',false)}}</p> -->
+						</p>
 					</div>
 				</div>
 			</div>
